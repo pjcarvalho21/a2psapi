@@ -1,8 +1,10 @@
-package com.a2.ps.api;
+package com.a2.ps.api.modelo;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,7 +19,8 @@ public class Entrevistado {
     @Column(name = "nome", nullable = false, length = Integer.MAX_VALUE)
     private String nome;
 
-    @OneToOne(mappedBy = "id")
-    private com.a2.ps.api.TbResposta tbResposta;
+
+    @OneToMany(mappedBy = "entrevistado")
+    private List<Resposta> respostas;
 
 }
