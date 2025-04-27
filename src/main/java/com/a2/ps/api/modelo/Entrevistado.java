@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_entrevistado")
+@Table(name = "tb_entrevistado", schema = "ad_a2")
 public class Entrevistado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +21,5 @@ public class Entrevistado {
     private String nome;
 
 
-    @OneToMany(mappedBy = "entrevistado")
-    private List<Resposta> respostas;
 
 }

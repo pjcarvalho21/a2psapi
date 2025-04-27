@@ -4,12 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_perguntas")
+@Table(name = "tb_pergunta", schema = "ad_a2")
 public class Pergunta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +16,5 @@ public class Pergunta {
 
     @Column(name = "pergunta", nullable = false, length = Integer.MAX_VALUE)
     private String pergunta;
-
-    @OneToMany(mappedBy = "resposta")
-    private List<Resposta> respostas;
 
 }

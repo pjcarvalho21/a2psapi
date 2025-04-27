@@ -1,6 +1,7 @@
 package com.a2.ps.api.controller;
 
 import com.a2.ps.api.modelo.Resposta;
+import com.a2.ps.api.modelo.RespostaEntrevistado;
 import com.a2.ps.api.service.RespostaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,12 @@ public class RespostaController {
     @GetMapping("/{id}")
     public ResponseEntity<Resposta> getById(@PathVariable Long id) {
         Optional<Resposta> resposta = respostaService.findById(id);
+        return resposta.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/entrevistado/{id}")
+    public ResponseEntity<RespostaEntrevistado> getByEntrevistado(@PathVariable Long id) {
+        Optional<RespostaEntrevistado> resposta = respostaService.findByEntrevistado(id);
         return resposta.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 

@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_respostas")
+@Table(name = "tb_resposta", schema = "ad_a2")
 public class Resposta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,12 +18,7 @@ public class Resposta {
     private String resposta;
 
     @ManyToOne
-    @JoinColumn(name = "idPergunta")
+    @JoinColumn(name = "id_pergunta", nullable = false)
     private Pergunta pergunta;
-
-    @ManyToOne
-    @JoinColumn(name = "id_entrevistado")
-    private Entrevistado entrevistado;
-
 
 }
