@@ -20,4 +20,5 @@ public class Entrevistado {
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
-   }
+
+}
