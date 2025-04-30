@@ -30,7 +30,7 @@ public class RespostaService {
         return respostaRepository.findById(id);
     }
 
-    public Optional<RespostaEntrevistado> findByEntrevistado(Long idEntrevistado) {
+    public Optional<List<RespostaEntrevistado>> findByEntrevistado(Long idEntrevistado) {
         Entrevistado entrevistado = entrevistadoRepository.findById(idEntrevistado).orElse(null);
         return Optional.ofNullable(respostaEntrevistadoRepository.findByEntrevistado(entrevistado));
     }

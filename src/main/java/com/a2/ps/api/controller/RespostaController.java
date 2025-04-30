@@ -31,8 +31,8 @@ public class RespostaController {
     }
 
     @GetMapping("/entrevistado/{id}")
-    public ResponseEntity<RespostaEntrevistado> getByEntrevistado(@PathVariable Long id) {
-        Optional<RespostaEntrevistado> resposta = respostaService.findByEntrevistado(id);
+    public ResponseEntity<List<RespostaEntrevistado>> getByEntrevistado(@PathVariable Long id) {
+        Optional<List<RespostaEntrevistado>> resposta = respostaService.findByEntrevistado(id);
         return resposta.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
