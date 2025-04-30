@@ -4,17 +4,22 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_pergunta", schema = "ad_a2")
+@Table(name = "tb_pergunta")
 public class Pergunta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "pergunta", nullable = false, length = Integer.MAX_VALUE)
+    @Column(name = "pergunta", nullable = false, length = 200)
     private String pergunta;
+
+
 
 }

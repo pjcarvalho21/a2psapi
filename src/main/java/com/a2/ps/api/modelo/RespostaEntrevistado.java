@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_resposta_entrevistado", schema = "ad_a2")
+@Table(name = "tb_resposta_entrevistado")
 public class RespostaEntrevistado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
