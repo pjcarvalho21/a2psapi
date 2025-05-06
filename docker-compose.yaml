@@ -1,0 +1,26 @@
+version: "3.9"
+
+networks:
+   a2-network:
+     driver: bridge
+
+services:
+  a2-mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: "seta3201"
+    ports:
+      - "3306:3306"
+    networks:
+      - a2-network
+  a2net-api:
+    image: a2net-api
+    command: ["/wait-for-it.sh", "a2-mysql:3306","-t", "30", "--", "java", "-jar", "a2back.jar"]
+    environment:
+      DB_HOST: a2-mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - a2-network
+    depends_on:
+      - a2-mysql
